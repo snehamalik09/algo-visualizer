@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="style.css">
+    <title>Binary Tree</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Jersey+20+Charted&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<style>
+
+    body {
+        font-family: "Kanit", sans-serif;
+	    font-weight: 700;
+	    font-style: normal;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: rgb(10, 10, 77);
+    }
+
+</style>
+    
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="heading">Binary Tree Visualization</h1>
+        <div class="findContainer"></div>
+        <textarea oninput="action()" type="number" placeholder='Enter an array which is separated with space. The root is first element.
+Ex: 5 9 1 3 7' id="inp" cols="30" rows="10"></textarea>
+        <div class="btn-container">
+            <button class="btn-clear" onclick="clearAndCreate()">Clear</button>
+            <button class="btn" disabled onclick="toggleLock()">Lock</button>
+        </div>
+
+        <div class="box graph" id="tree"></div>
+
+    </div>
+
+    <a href="https://github.com/saliherdemk/Binary-Tree-Visualization" target="blank">
+        <img src="media/githubLogo.png" alt="" id="github" style="position: absolute;right:0px">
+    </a>
+
+</body>
+<script src="./js/index.js"></script>
+<script src="./js/binaryTree.js"></script>
+<script src="./js/draw.js"></script>
+<script src="./js/d3js.js"></script>
+
+</html>
+
+
+<!--
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binary Tree Visualizer</title>
+<style>
+    #binary-tree-container {
+        text-align: center;
+    }
+    .node {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        border: 1px solid black;
+        margin: 0 10px;
+    }
+</style>
+</head>
+<body>
+<div id="binary-tree-container">
+    <button onclick="insertNode()">Insert Node</button>
+    <button onclick="inorderTraversal()">Inorder Traversal</button>
+    <button onclick="preorderTraversal()">Preorder Traversal</button>
+    <button onclick="postorderTraversal()">Postorder Traversal</button>
+</div>
+<script>
+    class Node {
+        constructor(value) {
+            this.value = value;
+            this.left = null;
+            this.right = null;
+        }
+    }
+
+    let rootNode = null;
+
+    function insertNode() {
+        let value = prompt("Enter node value:");
+        if (!isNaN(value) && value !== null) {
+            value = parseInt(value);
+            const newNode = new Node(value);
+            if (rootNode === null) {
+                rootNode = newNode;
+            } else {
+                insertHelper(rootNode, newNode);
+            }
+            renderTree();
+        } else {
+            alert("Invalid input. Please enter a valid number.");
+        }
+    }
+
+    function insertHelper(root, newNode) {
+        if (newNode.value < root.value) {
+            if (root.left === null) {
+                root.left = newNode;
+            } else {
+                insertHelper(root.left, newNode);
+            }
+        } else {
+            if (root.right === null) {
+                root.right = newNode;
+            } else {
+                insertHelper(root.right, newNode);
+            }
+        }
+    }
+
+    function inorderTraversal() {
+        const result = [];
+        inorderTraversalHelper(rootNode, result);
+        alert("Inorder Traversal: " + result.join(" "));
+    }
+
+    function inorderTraversalHelper(node, result) {
+        if (node !== null) {
+            inorderTraversalHelper(node.left, result);
+            result.push(node.value);
+            inorderTraversalHelper(node.right, result);
+        }
+    }
+
+    function preorderTraversal() {
+        const result = [];
+        preorderTraversalHelper(rootNode, result);
+        alert("Preorder Traversal: " + result.join(" "));
+    }
+
+    function preorderTraversalHelper(node, result) {
+        if (node !== null) {
+            result.push(node.value);
+            preorderTraversalHelper(node.left, result);
+            preorderTraversalHelper(node.right, result);
+        }
+    }
+
+    function postorderTraversal() {
+        const result = [];
+        postorderTraversalHelper(rootNode, result);
+        alert("Postorder Traversal: " + result.join(" "));
+    }
+
+    function postorderTraversalHelper(node, result) {
+        if (node !== null) {
+            postorderTraversalHelper(node.left, result);
+            postorderTraversalHelper(node.right, result);
+            result.push(node.value);
+        }
+    }
+
+    function renderTree() {
+        const container = document.getElementById("binary-tree-container");
+        const treeContainer = document.createElement("div");
+        renderNode(rootNode, treeContainer);
+        container.appendChild(treeContainer);
+    }
+
+    function renderNode(node, container) {
+        if (node !== null) {
+            const nodeElement = document.createElement("div");
+            nodeElement.classList.add("node");
+            nodeElement.textContent = node.value;
+            container.appendChild(nodeElement);
+            renderNode(node.left, container);
+            renderNode(node.right, container);
+        }
+    }
+</script>
+</body>
+</html>
+
+-->
