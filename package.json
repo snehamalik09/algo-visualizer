@@ -8,10 +8,9 @@
     "start": "node server.js"
   },
   "keywords": [
-    "graphs",
     "pathfinding-visualiser"
   ],
-  "author": "servermonk, zeddie",
+  "author": "sneha",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"

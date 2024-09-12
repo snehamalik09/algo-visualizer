@@ -105,6 +105,26 @@ a:visited {
     border: none;
 }
 
+#showWarning{
+    width:80%;
+    padding: 2rem;
+}
+
+.warningBox{
+    background-color: white;
+    color:#0A0A4D;
+    width:70%;
+    height:40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:20%;
+    z-index: 90;
+    border: 2px solid black;
+    border-radius: 20%;
+}
+
 
 
 
@@ -115,6 +135,15 @@ li {
 
 
 /* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 600px) {
+    .warningBox {
+        width:80%;
+        height:40%;
+    }
+
+}
+
 @media only screen and (max-width: 600px) {
     body {
         font-size: small;

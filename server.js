@@ -1,13 +1,19 @@
 const express = require('express');
-const { dirname } = require('path');
+const path = require('path');
 
 const app = express();
-app.use("/public", express.static(__dirname + "/public"));
+const PORT = process.env.PORT || 3000; 
 
-app.get("/", (req,res) =>{
-    res.sendFile(__dirname + "/index.html");
-})
+app.use("/public", express.static(path.join(__dirname, "public")));
 
-app.listen(3000 , () => {
-    console.log('server running on port 3000');
-})
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+app.get("/index.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
